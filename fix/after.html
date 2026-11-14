@@ -26,7 +26,7 @@
     text-align: center;
     padding: 8px 12px;
   }
-  .banner a { color: #fff; }
+  .banner a { color: #fff; display: inline-block; padding: 10px 6px; }
 
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
@@ -110,10 +110,8 @@
     <div class="nav">
       <strong>みどり電機 サービス紹介</strong>
       <nav>
-        <a href="#">サービス</a>
-        <a href="#">料金</a>
-        <a href="#">会社概要</a>
-        <a href="#">お問い合わせ</a>
+        <a href="#services">サービス</a>
+        <a href="#contact">お問い合わせ</a>
       </nav>
     </div>
   </header>
@@ -125,7 +123,7 @@
     </div>
   </section>
 
-  <section class="cols">
+  <section class="cols" id="services">
     <div class="col">
       <h2>定期点検</h2>
       <p>年2回の点検で、突発停止を減らします。</p>
@@ -140,8 +138,8 @@
     </div>
   </section>
 
-  <section class="contact">
-    <p><a href="#">お問い合わせ</a></p>
+  <section class="contact" id="contact">
+    <p><a href="../contact.html">お問い合わせ</a></p>
   </section>
 </div>
 </body>

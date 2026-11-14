@@ -230,7 +230,7 @@
   .footer { background: var(--surface-low); border-top: 1px solid var(--line); padding: 40px 0; }
   .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
   .footer p { color: var(--muted); font-size: 13px; }
-  .footer a { color: var(--muted); text-decoration: none; font-size: 13px; }
+  .footer a { color: var(--muted); text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; min-height: 44px; }
   .footer a:hover { text-decoration: underline; }
   .footer ul { list-style: none; padding: 0; margin: 8px 0 0; }
   .footer li { margin: 4px 0; }
@@ -238,9 +238,11 @@
 
   /* mobile */
   .mobile-cta { display: none; }
+  @media (max-width: 899px) {
+    .header__cta { display: none; }
+  }
   @media (max-width: 900px) {
     .hero__inner { grid-template-columns: 1fr; padding: 40px 20px 48px; }
-    .hero__art { order: -1; }
     .grid-3, .grid-2 { grid-template-columns: 1fr; }
     .footer__grid { grid-template-columns: 1fr; }
   }
@@ -452,8 +454,8 @@
       <div>
         <strong>ご案内</strong>
         <ul>
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">特定商取引法に基づく表記</a></li>
+          <li><a href="legal.html">プライバシーポリシー</a></li>
+          <li><a href="legal.html#tokushoho">特定商取引法に基づく表記</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
       </div>
