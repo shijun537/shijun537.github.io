@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
@@ -48,7 +48,7 @@
     color: var(--gold);
     margin-bottom: 8px;
   }
-  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .section-title { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; margin-bottom: 12px; text-wrap: balance; }
   .section-lead { color: var(--muted); max-width: 640px; }
 
   /* header */
@@ -134,15 +134,16 @@
     color: var(--pine);
     margin-bottom: 16px;
   }
-  .hero h1 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 700; line-height: 1.4; }
+  .hero h1 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 700; line-height: 1.4; text-wrap: balance; }
   .hero__lead { margin-top: 16px; color: var(--muted); max-width: 560px; }
   .hero__actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
   .hero__art {
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius-card);
+    aspect-ratio: 5 / 4;
+    border-radius: 0.75rem;
     background: var(--surface-low);
     border: 1px solid var(--line);
     overflow: hidden;
+    box-shadow: 0 18px 40px rgba(21, 30, 23, 0.14);
   }
   .hero__art img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
@@ -164,7 +165,9 @@
     border: 1px solid rgba(34, 43, 36, 0.08);
     border-radius: var(--radius-card);
     padding: 24px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
   }
+  .card:hover { box-shadow: 0 10px 28px rgba(21, 30, 23, 0.08); transform: translateY(-2px); }
   .card h3 { font-size: 18px; margin-bottom: 8px; }
   .card p { color: var(--muted); font-size: 15px; }
   .step__num {
@@ -181,10 +184,25 @@
   }
 
   /* works */
-  .work { background: var(--white); border: 1px solid rgba(34, 43, 36, 0.08); border-radius: var(--radius-card); overflow: hidden; }
-  .work__pair { display: grid; grid-template-columns: 1fr 1fr; }
-  .work__shot { aspect-ratio: 4 / 3; background: var(--surface-low); overflow: hidden; }
-  .work__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work { background: var(--white); border: 1px solid rgba(34, 43, 36, 0.08); border-radius: var(--radius-card); overflow: hidden; transition: box-shadow 0.25s ease, transform 0.25s ease; }
+  .work:hover { box-shadow: 0 12px 32px rgba(21, 30, 23, 0.10); transform: translateY(-2px); }
+  .work__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(34, 43, 36, 0.08); }
+  .work__shot { position: relative; aspect-ratio: 4 / 3; background: var(--surface-low); overflow: hidden; }
+  .work__shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s ease; }
+  .work:hover .work__shot img { transform: scale(1.04); }
+  .shot-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--pine);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
   .work__body { padding: 16px 20px 20px; }
   .work__body p { color: var(--muted); font-size: 14px; margin-top: 6px; }
   .chip { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 11px; color: var(--muted); margin-right: 6px; }
@@ -353,8 +371,8 @@
     <div class="grid-2">
       <article class="work">
         <div class="work__pair">
-          <div class="work__shot"><img src="img/lp-work-before.jpg" alt="塗膜が劣化した外壁（施工前）" width="900" height="675"></div>
-          <div class="work__shot"><img src="img/lp-work-after.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"></div>
+          <div class="work__shot"><img src="img/lp-work-before.jpg" alt="塗膜が劣化した外壁（施工前）" width="900" height="675"><span class="shot-label">施工前</span></div>
+          <div class="work__shot"><img src="img/lp-work-after.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"><span class="shot-label">施工後</span><span class="shot-label">施工後</span></div>
         </div>
         <div class="work__body">
           <strong>築22年・外壁塗装（シリコン）</strong>
@@ -363,8 +381,8 @@
       </article>
       <article class="work">
         <div class="work__pair">
-          <div class="work__shot"><img src="img/lp-work-before2.jpg" alt="ひび割れが入った外壁（施工前）" width="900" height="675"></div>
-          <div class="work__shot"><img src="img/lp-work-after2.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"></div>
+          <div class="work__shot"><img src="img/lp-work-before2.jpg" alt="ひび割れが入った外壁（施工前）" width="900" height="675"><span class="shot-label">施工前</span></div>
+          <div class="work__shot"><img src="img/lp-work-after2.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"><span class="shot-label">施工後</span><span class="shot-label">施工後</span></div>
         </div>
         <div class="work__body">
           <strong>築18年・屋根塗装と部分補修</strong>
@@ -467,3 +485,4 @@
 
 </body>
 </html>
+

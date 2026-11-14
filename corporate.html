@@ -714,6 +714,9 @@
         font-size: 18px;
       }
 
+      /* 見出しの折り返し制御（助詞だけが行頭に残るのを防ぐ） */
+      .nowrap { white-space: nowrap; }
+
       /* 会社概要テーブルのモバイル対応 */
       .company-table th,
       .company-table td {
@@ -811,7 +814,7 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <span class="hero-eyebrow">中小企業・総務担当者向け 業務支援</span>
-          <h1>バックオフィス業務を効率化し、本業に集中できる強い組織へ。</h1>
+          <h1>バックオフィス業務を効率化し、本業に集中できる<span class="nowrap">強い組織へ。</span></h1>
           <p class="hero-subcopy">
             煩雑な総務・労務・経理手続きを一括サポート。専任スタッフの不足や属人化に悩む中小企業の成長基盤を、手厚くスピーディに構築します。
           </p>

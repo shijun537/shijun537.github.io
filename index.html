@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shijun Studio | 静的LPと既存サイトの修正</title>
-<meta name="description" content="静的LPの制作と既存サイトの修正を、AIを使って短納期で制作します。">
+<title>Shijun Studio | 静的LP・サイト修正・業務の自動化</title>
+<meta name="description" content="静的LPの制作、既存サイトの修正、CSVやスプレッドシートからの帳票自動化を、AIを使って短納期で制作します。">
 <meta property="og:title" content="Shijun Studio">
-<meta property="og:description" content="静的LPの制作と既存サイトの修正を、AIを使って短納期で制作します。">
+<meta property="og:description" content="静的LPの制作、既存サイトの修正、CSVやスプレッドシートからの帳票自動化を、AIを使って短納期で制作します。">
 <meta property="og:type" content="website">
 <style>
   :root {
@@ -24,7 +24,7 @@
     font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
     line-height: 1.9;
   }
-  main { max-width: 720px; margin: 0 auto; padding: 56px 20px 72px; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 20px 72px; }
   header { margin-bottom: 48px; }
   h1 { font-size: 1.8rem; margin: 0 0 8px; letter-spacing: 0.01em; }
   .lead { color: var(--muted); margin: 0; }
@@ -49,6 +49,37 @@
     border-radius: 6px;
   }
   .cta:hover { opacity: 0.9; }
+
+  /* 制作サンプル一覧 */
+  .samples { display: grid; gap: 12px; margin-top: 20px; }
+  .sample {
+    display: block;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--fg);
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .sample:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+  .sample__kicker {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .sample strong { display: block; font-size: 1.02rem; }
+  .sample__desc { display: block; color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+  @media (min-width: 640px) {
+    .samples { grid-template-columns: 1fr 1fr; }
+  }
+
   footer {
     margin-top: 56px;
     padding-top: 20px;
@@ -62,7 +93,7 @@
 <main>
   <header>
     <h1>Shijun Studio</h1>
-    <p class="lead">静的LPと既存サイトの修正を、AIを使って短納期で制作します。</p>
+    <p class="lead">静的LPの制作、既存サイトの修正、業務の自動化を、AIを使って短納期で制作します。</p>
   </header>
 
   <h2>対応範囲</h2>
@@ -70,6 +101,7 @@
     <li>静的LPの制作（1ページ完結）</li>
     <li>既存サイトの修正・レスポンシブ対応</li>
     <li>表示崩れ・レイアウトの調整</li>
+    <li>CSV・スプレッドシートからの帳票自動化（見積書・請求書など）</li>
   </ul>
   <p class="note">サーバー構築・CMS構築・運用保守は対応していません。</p>
 
@@ -85,11 +117,28 @@
 
   <h2>制作サンプル（自主制作）</h2>
   <p class="note">いずれも自主制作のサンプルです。実在の企業・団体から受注した実績ではありません。掲載している社名・数値・料金はすべて架空です。</p>
-  <ul>
-    <li><a href="fix/after.html">既存ページの表示崩れを修正（修正前／修正後）</a></li>
-    <li><a href="lp.html">外壁塗装の集客LP（1ページ・スマホ対応）</a></li>
-    <li><a href="corporate.html">中小企業向けコーポレートサイト（1ページ）</a></li>
-  </ul>
+  <div class="samples">
+    <a class="sample" href="fix/after.html">
+      <span class="sample__kicker">既存サイトの修正</span>
+      <strong>表示崩れの修正（修正前／修正後）</strong>
+      <span class="sample__desc">横スクロール・要素の重なり・タップ領域の3点を直した例</span>
+    </a>
+    <a class="sample" href="lp.html">
+      <span class="sample__kicker">集客LP</span>
+      <strong>外壁塗装の集客LP（1ページ・スマホ対応）</strong>
+      <span class="sample__desc">悩み→理由→施工事例→料金→FAQ→相談導線</span>
+    </a>
+    <a class="sample" href="corporate.html">
+      <span class="sample__kicker">コーポレート</span>
+      <strong>中小企業向けコーポレートサイト（1ページ）</strong>
+      <span class="sample__desc">サービス・数値効果・料金・会社概要の情報設計</span>
+    </a>
+    <a class="sample" href="quote/index.html">
+      <span class="sample__kicker">業務の自動化</span>
+      <strong>見積書・請求書の自動生成</strong>
+      <span class="sample__desc">CSVからA4 PDFを生成。税率の混在と端数処理に対応</span>
+    </a>
+  </div>
 
   <a class="cta" href="contact.html">お問い合わせ</a>
 
