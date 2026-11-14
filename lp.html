@@ -25,7 +25,7 @@
     --radius-card: 0.5rem;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   body {
     margin: 0;
     color: var(--ink);
@@ -72,7 +72,7 @@
   }
   .brand { font-weight: 700; font-size: 17px; }
   .brand small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); }
-  .nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .nav { display: flex; flex-wrap: wrap; gap: 8px; }
   .nav a {
     display: inline-flex;
     align-items: center;
@@ -107,6 +107,8 @@
     border-color: rgba(212, 175, 55, 0.5);
   }
   .btn__note { display: block; font-size: 12px; font-weight: 500; opacity: 0.85; }
+  .btn--stacked { flex-direction: column; gap: 2px; }
+  .btn--stacked .btn__note { text-align: center; }
 
   /* hero */
   .hero {
@@ -138,16 +140,11 @@
   .hero__art {
     aspect-ratio: 4 / 3;
     border-radius: var(--radius-card);
-    background:
-      linear-gradient(140deg, rgba(30, 86, 49, 0.18), rgba(212, 175, 55, 0.18)),
-      repeating-linear-gradient(90deg, #dfe9dd 0 18px, #e9f1e7 18px 36px);
+    background: var(--surface-low);
     border: 1px solid var(--line);
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
-    color: var(--pine);
-    font-size: 13px;
+    overflow: hidden;
   }
+  .hero__art img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
   .badge {
     border: 1px solid rgba(212, 175, 55, 0.6);
@@ -186,9 +183,8 @@
   /* works */
   .work { background: var(--white); border: 1px solid rgba(34, 43, 36, 0.08); border-radius: var(--radius-card); overflow: hidden; }
   .work__pair { display: grid; grid-template-columns: 1fr 1fr; }
-  .work__shot { aspect-ratio: 4 / 3; display: flex; align-items: flex-end; padding: 12px; font-size: 12px; font-weight: 600; }
-  .work__shot--before { background: repeating-linear-gradient(45deg, #d9d9d4 0 12px, #e6e6e1 12px 24px); color: #5b5b56; }
-  .work__shot--after { background: repeating-linear-gradient(45deg, #cfe4cf 0 12px, #e3f0e1 12px 24px); color: var(--pine); }
+  .work__shot { aspect-ratio: 4 / 3; background: var(--surface-low); overflow: hidden; }
+  .work__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .work__body { padding: 16px 20px 20px; }
   .work__body p { color: var(--muted); font-size: 14px; margin-top: 6px; }
   .chip { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 11px; color: var(--muted); margin-right: 6px; }
@@ -208,7 +204,7 @@
     padding: 16px 20px;
     margin-bottom: 10px;
   }
-  .faq summary { cursor: pointer; font-weight: 600; list-style: none; }
+  .faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; min-height: 44px; }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::before { content: "＋"; color: var(--pine); margin-right: 8px; }
   .faq details[open] summary::before { content: "−"; }
@@ -230,7 +226,7 @@
   .footer { background: var(--surface-low); border-top: 1px solid var(--line); padding: 40px 0; }
   .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
   .footer p { color: var(--muted); font-size: 13px; }
-  .footer a { color: var(--muted); text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; min-height: 44px; }
+  .footer a { color: var(--muted); text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
   .footer a:hover { text-decoration: underline; }
   .footer ul { list-style: none; padding: 0; margin: 8px 0 0; }
   .footer li { margin: 4px 0; }
@@ -289,7 +285,7 @@
       <h1>住まいの美しさと耐久性を、<br>職人の確かな手仕事で。</h1>
       <p class="hero__lead">無理な営業は一切いたしません。地元で培った施工技術と明朗会計で、大切なマイホームを紫外線や雨風から守ります。</p>
       <div class="hero__actions">
-        <a class="btn" href="#contact">無料見積りを依頼する<span class="btn__note">簡単30秒</span></a>
+        <a class="btn btn--stacked" href="#contact">無料見積りを依頼する<span class="btn__note">簡単30秒</span></a>
         <a class="btn btn--ghost" href="#works">施工事例を見る</a>
       </div>
       <div class="badges">
@@ -298,7 +294,7 @@
         <span class="badge">無料現地調査</span>
       </div>
     </div>
-    <div class="hero__art">外壁塗装の施工イメージ（写真は差し替え）</div>
+    <div class="hero__art"><img src="img/lp-hero.jpg" alt="外壁塗装を終えた住宅の外観" width="1200" height="800"></div>
   </div>
 </section>
 
@@ -353,12 +349,12 @@
   <div class="wrap">
     <span class="eyebrow">施工事例</span>
     <h2 class="section-title">施工前・施工後</h2>
-    <p class="section-lead">写真は差し替え前提のプレースホルダーです。</p>
+    <p class="section-lead">施工前後の状態と、工期・金額の目安をまとめています。</p>
     <div class="grid-2">
       <article class="work">
         <div class="work__pair">
-          <div class="work__shot work__shot--before">施工前</div>
-          <div class="work__shot work__shot--after">施工後</div>
+          <div class="work__shot"><img src="img/lp-work-before.jpg" alt="塗膜が劣化した外壁（施工前）" width="900" height="675"></div>
+          <div class="work__shot"><img src="img/lp-work-after.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"></div>
         </div>
         <div class="work__body">
           <strong>築22年・外壁塗装（シリコン）</strong>
@@ -367,8 +363,8 @@
       </article>
       <article class="work">
         <div class="work__pair">
-          <div class="work__shot work__shot--before">施工前</div>
-          <div class="work__shot work__shot--after">施工後</div>
+          <div class="work__shot"><img src="img/lp-work-before2.jpg" alt="ひび割れが入った外壁（施工前）" width="900" height="675"></div>
+          <div class="work__shot"><img src="img/lp-work-after2.jpg" alt="塗装を終えた外壁（施工後）" width="900" height="675"></div>
         </div>
         <div class="work__body">
           <strong>築18年・屋根塗装と部分補修</strong>
@@ -460,7 +456,7 @@
         </ul>
       </div>
     </div>
-    <p class="copyright">© 2026 大和外装工務店（サンプル）</p>
+    <p class="copyright">© 2026 大和外装工務店（自主制作サンプル・社名と実績は架空です）</p>
   </div>
 </footer>
 
